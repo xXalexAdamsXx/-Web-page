@@ -1,0 +1,101 @@
+/* General Styles */
+.footer-container {
+	min-height: 200px;
+	background: var(--PKP-blue);
+	padding: 10px 0;
+}
+
+.footer-container p {
+	margin-left: 10%;
+}
+
+.footer-content {
+	width: 80%;
+	justify-self: center;
+	align-self: center;
+	transition: width 0.5s ease;
+}
+
+/* Responsive Styles for Footer Content */
+@media (max-width: 480px) {
+	.footer-content {
+		width: 90%;
+		align-content: center;
+	}
+}
+
+/* Title and Logos Section */
+.title-logos {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.title-logos::after {
+	content: '';
+	height: 0.5px;
+	width: 105%;
+	margin: 10px 0;
+	background-color: white;
+}
+
+.title-logos h2 {
+	flex: 1 1 auto;
+	/* Allow the text to shrink and wrap */
+}
+
+.title-logos h2 a {
+	color: #fefefe;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1.5px;
+	font-size: 1.8rem;
+	transition: color 0.3s ease;
+}
+
+.title-logos h2 a:hover {
+	color: #c8c8c8;
+}
+
+/* Responsive Line Break in Title */
+.title-logos h2 a br {
+	display: none;
+}
+
+@media (max-width: 760px) {
+	.title-logos h2 a br {
+		display: inline;
+	}
+}
+
+/* Social Media Section */
+.social-media {
+	display: flex;
+	flex-wrap: wrap;
+	width: fit-content;
+	margin-left: 20px;
+	gap: 15px;
+}
+
+.social-media a img {
+	height: 2rem;
+	transition: filter 0.3s ease;
+}
+
+.social-media a img:hover {
+	filter: brightness(0.65);
+}
+
+/* Responsive Styles for Social Media */
+@media (max-width: 500px) {
+	.social-media {
+		width: 60px;
+		margin-left: 15px;
+		gap: 10px;
+	}
+
+	.social-media a img {
+		height: 1.5rem;
+	}
+}

@@ -1,0 +1,248 @@
+/************* GLOBAL VARIABLES ***************/
+:root {
+	--background-color: #121212;
+	--PKP-blue: #005596;
+	--PKP-yellow: #E7A614;
+	--shadow-background: rgba(255, 255, 255, 0.5);
+
+
+	--ease2: cubic-bezier(0.64, 0.11, 0.1, 1.015);
+}
+
+/************ GLOBAL STYLING *****************/
+body {
+	background-color: var(--background-color);
+}
+
+body * {
+	animation: fall-in 0.75s ease;
+}
+
+/* Apply the fade-out animation to all elements with a specific class */
+body.fade-out * {
+	animation: fade-out 0.5s ease-in-out;
+}
+
+/************ GENERAL ANIMATIONS *************/
+@keyframes active-glow {
+
+	0%,
+	100% {
+		box-shadow: 10px 0 10px var(--glow-color), 15px 0 15px var(--glow-color),
+			inset -4px 0 4px var(--glow-color), inset 100px 0 10px var(--glow-background-color);
+	}
+
+	50% {
+		box-shadow: 3px 0 3px var(--glow-color), 5px 0 8px var(--glow-color),
+			inset -1px 0 1px var(--glow-color), inset 1px 0 1px var(--glow-background-color);
+	}
+}
+
+@keyframes glow-full {
+
+	0%,
+	100% {
+		box-shadow: 0px 0 3px var(--glow-color), 0px 0 8px var(--glow-color),
+			inset 0px 0 1px var(--glow-color);
+	}
+
+	50% {
+		box-shadow: 0px 0 25px var(--glow-color), 0px 0 30px var(--glow-color),
+			inset 0px 0 5px var(--glow-color);
+	}
+}
+
+@keyframes blink {
+	50% {
+		opacity: 0;
+	}
+}
+
+/* Keyframes for the falling effect */
+@keyframes fall-in {
+	from {
+		opacity: 0;
+		transform: translateY(-5px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Define keyframes for the fade-out effect */
+@keyframes fade-out {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+	}
+}
+
+/************* BASIC HTML RESET ***************/
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	font-family: var(--font-body-family);
+}
+
+/************* NAV BAR STYLING ***************/
+#top-spacing {
+	height: 65px;
+}
+
+.nav-container {
+	position: fixed;
+	width: 100%;
+	height: 80px;
+	display: flex;
+	/* align-content: center; */
+	justify-content: center;
+	flex-wrap: wrap;
+	z-index: 100;
+	/* transition: top 0.03s ease; */
+}
+
+.nav {
+	display: flex;
+	background-color: var(--background-color);
+	justify-content: space-between;
+	align-items: center;
+	height: 60px;
+	width: 100%;
+	top: 0;
+	left: 0;
+	padding: 0 20px;
+	z-index: 101;
+	border: solid 0.5px var(--PKP-blue);
+	box-shadow: 0 0 5px 0px rgb(50, 50, 255);
+	overflow: hidden;
+	border-radius: 0px 0px 10px 10px;
+	overflow: hidden;
+}
+
+.cursor-glow {
+	position: absolute;
+	height: 1px;
+	width: 1px;
+	box-shadow: 10px 10px 30px 10px rgb(255, 255, 255);
+}
+
+.home-link {
+	height: 80%;
+}
+
+.right-side {
+	display: flex;
+	flex-wrap: wrap;
+	height: 100%;
+}
+
+.nav-logo {
+	max-width: 100%;
+	height: 85%;
+	max-height: 100%;
+	border-radius: 100px 100px 30px 30px;
+	object-fit: contain;
+	transition: background-color 0.2s var(--ease2), box-shadow 0.2s var(--ease2);
+}
+
+.nav a {
+	display: flex;
+	height: 100%;
+	width: 60px;
+	margin: 0 5px 0 5px;
+	padding: 2px;
+	text-align: center;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: center;
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+.nav a:hover {
+	color: var(--PKP-yellow);
+}
+
+.nav a::after {
+	content: '';
+	color: var(--PKP-yellow);
+	height: 0.5px;
+	width: 0px;
+	background-color: var(--PKP-yellow);
+	position: absolute;
+	bottom: 20px;
+
+	z-index: 102;
+	transition: width 0.3s var(--ease2);
+
+}
+
+.nav a:hover::after {
+	width: 60px;
+	position: absolute;
+
+}
+
+.nav a::before {
+	content: '';
+	position: absolute;
+	height: 0px;
+	width: 55px;
+	bottom: 20px;
+	z-index: -1;
+	background-color: #00f7ff;
+	opacity: 0.4;
+	transition: height 0.3s var(--ease2), box-shadow 1s var(--ease2);
+}
+
+.nav a:hover::before {
+	height: 60px;
+	box-shadow: 0px -3.5px 3px 4px #00f7ff;
+	transition: height 0.3s var(--ease2), box-shadow 0.001s var(--ease2);
+}
+
+.account-button {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-decoration: none;
+	color: var(--link-color);
+	margin-left: 10px;
+	cursor: pointer;
+}
+
+.account-button:visited {
+	color: var(--link-color);
+}
+
+.account-button:hover {
+	color: var(--PKP-yellow);
+	text-decoration: none;
+}
+
+.account-button:active {
+	color: var(--PKP-yellow);
+	text-decoration: none;
+}
+
+.account-button .profile-picture {
+	height: 30px;
+	width: 30px;
+	position: relative;
+}
+
+.account-button span {
+	color: inherit;
+}
