@@ -23,6 +23,6 @@
             </div>
         </div>
     </div>
-    <p>In ΠΚΦ - Alexander Adams - <?php echo date('Y'); ?></p>
+    <p>In ΠΚΦ - Alexander Adams & Ken Alexopoulos - <?php echo date('Y'); ?></p>
 
 </footer>
